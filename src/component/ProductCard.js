@@ -1,13 +1,16 @@
 import React from 'react'
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
+
+  
+    
   return (
-    <div>
-      <img src="https://lp2.hm.com/hmgoepprod?set=source[/e0/ee/e0eeeb59c36dc8aa4a91a5530a1972006bdcd638.jpg],origin[dam],category[],type[LOOKBOOK],res[y],hmver[1]&call=url[file:/product/main]"/>
-      <div>Cons</div>
-      <div>리브드 크롭트 티셔츠</div>
-      <div>₩7,900</div>
-      <div>신제품</div>
+    <div className="product-card">
+      <img className="child" width={300} src={item?.img}/>
+      <div>{item?.choice === true ? "Conscius choice" : ""}</div>
+      <div>{item?.title}</div>
+      <div>₩{item?.price}</div>
+      <div>{item?.new === true ? "신제품" : ""}</div>
     </div>
   )
 }

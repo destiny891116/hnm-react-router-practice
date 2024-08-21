@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import ProductCard from '../component/ProductCard';
+import { Col, Container, Row } from 'react-bootstrap';
+
 
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
@@ -18,9 +20,20 @@ const ProductAll = () => {
     getProducts();
   },[]);
 
-  return <div>
-    <ProductCard />
-  </div>;
+  return (
+    <div>
+      <Container>
+       <Row>
+        {productList.map((menu) => (
+          <Col lg={3} key={menu.id}>
+            <ProductCard item={menu}/>
+          </Col>
+        ))};
+        
+        </Row>
+      </Container>
+    </div>
+  );
 }
 
 export default ProductAll

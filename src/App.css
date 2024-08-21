@@ -2,6 +2,7 @@
     display: flex;
     justify-content: flex-end;
     margin: 20px;
+    cursor: pointer;
 }
 
 .nav-section {
@@ -26,3 +27,11 @@
 .search-btn {
     border-width: 0 0 1px;
 }
+
+.product-card:hover .child {
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02); /* 크롬, 사파리 */
+    -moz-transform: scale(1.02);  /* 파이어폭스 */
+    -ms-transform: scale(1.02); /* IE */
+    -o-transform: scale(1.02);  /* 오페라 */
+  }

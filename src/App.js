@@ -1,9 +1,11 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import Navbar from './component/Navbar';
+
 
 //1. 전체상품페이지, 로그인페이지, 상품상세페이지
 //1-1. 네비게이션 바
@@ -23,7 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>
-  </div>;
+  </div>
 }
 
 export default App;
