@@ -12,7 +12,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     const mainPage = () => {
         navigate("/");
     }
-    
+
     const loginPage = () => {
 
         if(authenticate) {
@@ -26,6 +26,15 @@ const Navbar = ({authenticate, setAuthenticate}) => {
         }
         
     }
+
+    const search = (event) => {
+        if( event.key === "Enter") {
+            let keyword = event.target.value;
+            
+            navigate(`/?q=${keyword}`);
+        }
+    }
+
   return (
     <div>
         <div>
@@ -47,7 +56,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
             </ul>
             <div className="serach-box">
                 <FontAwesomeIcon icon={faSearch}/>
-                <input type="text" className="search-btn"  placeholder="검색을 입력해주세요."  />
+                <input type="text" className="search-btn" placeholder="검색을 입력해주세요." onKeyPress={(event)=>search(event)}  />
             </div>
         </div>
     </div>)

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import ProductCard from '../component/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
 
 const apiUrl = process.env.NODE_ENV !== 'development'
     ? 'https://my-json-server.typicode.com/destiny891116/hnm-react-router-practice'
@@ -10,12 +11,13 @@ const apiUrl = process.env.NODE_ENV !== 'development'
 
 
 const ProductAll = () => {
-  console.log(process.env.NODE_ENV);
   const [productList, setProductList] = useState([]);
+  const [query, setQuery] = useSearchParams();
 
   const getProducts = async () => {
     try {
-      let url = `${apiUrl}/products`;
+      let searchQuery = query.get('q') || "";
+      let url = `${apiUrl}/products?q=${searchQuery}`;
       let response = await fetch(url);
       let data = await response.json();
       setProductList(data);
@@ -26,7 +28,7 @@ const ProductAll = () => {
 
   useEffect(()=>{
     getProducts();
-  },[]);
+  },[query]);
 
   return (
     <div>
