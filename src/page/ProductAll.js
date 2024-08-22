@@ -14,11 +14,14 @@ const ProductAll = () => {
   const [productList, setProductList] = useState([]);
 
   const getProducts = async () => {
-    let url = `${apiUrl}/products`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductList(data);
-    
+    try {
+      let url = `${apiUrl}/products`;
+      let response = await fetch(url);
+      let data = await response.json();
+      setProductList(data);
+    } catch(error) {
+      console.error(error);
+    }    
   }
 
   useEffect(()=>{
@@ -27,7 +30,7 @@ const ProductAll = () => {
 
   return (
     <div>
-      <Container>
+      <Container className="product-grid">
         <Row>
           {productList.map((menu) => (
             <Col lg={3} key={menu.id}>

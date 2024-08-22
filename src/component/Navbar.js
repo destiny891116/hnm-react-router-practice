@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
-    const menuList = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M HOME', 'Sale', '지속가능성'];  
+    const menuList = ['Women', 'Man', 'Baby', 'Kids', 'H&M HOME', 'Sport', 'Sale', '지속가능성'];  
     const navigate = useNavigate();
 
     const mainPage = () => {
