@@ -5,7 +5,7 @@ import ProductCard from '../component/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const apiUrl = process.env.NODE_ENV !== 'development'
-    ? 'https://my-json-server.typicode.com/HyungJun-Yoo/react-nike-shoes'
+    ? 'https://master--lucky-croissant-a60c31.netlify.app/'
     : 'http://localhost:5000'
 
 
@@ -14,7 +14,7 @@ const ProductAll = () => {
   const [productList, setProductList] = useState([]);
 
   const getProducts = async () => {
-    let url = 'http://localhost:5000/products';
+    let url = `${apiUrl}/products`;
     let response = await fetch(url);
     let data = await response.json();
     setProductList(data);
