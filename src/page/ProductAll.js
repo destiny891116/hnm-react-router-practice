@@ -5,7 +5,7 @@ import ProductCard from '../component/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const apiUrl = process.env.NODE_ENV !== 'development'
-    ? 'https://master--lucky-croissant-a60c31.netlify.app/'
+    ? 'https://my-json-server.typicode.com/destiny891116/hnm-react-router-practice'
     : 'http://localhost:5000'
 
 
@@ -30,7 +30,7 @@ const ProductAll = () => {
 
   return (
     <div>
-      <Container className="product-grid">
+      <Container className="product-all">
         <Row>
           {productList.map((menu) => (
             <Col lg={3} key={menu.id}>

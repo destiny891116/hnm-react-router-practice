@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const apiUrl = process.env.NODE_ENV !== 'development'
-    ? 'https://master--lucky-croissant-a60c31.netlify.app/'
+    ? 'https://my-json-server.typicode.com/destiny891116/hnm-react-router-practice'
     : 'http://localhost:5000'
 
 const ProductDetail = () => {
