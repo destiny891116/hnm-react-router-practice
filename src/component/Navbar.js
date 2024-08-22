@@ -9,6 +9,9 @@ const Navbar = () => {
     const menuList = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M HOME', 'Sale', '지속가능성'];  
     const navigate = useNavigate();
 
+    const mainPage = () => {
+        navigate("/");
+    }
     const loginPage = () => {
         navigate("/login");
     }
@@ -21,7 +24,7 @@ const Navbar = () => {
              </div>
         </div>
         <div className="nav-section">
-            <img width={100} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu33MvMQxzeLQWuQTeJbGoEUq_bsuAH1HMag&s"></img>
+            <img onClick={mainPage}width={100} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu33MvMQxzeLQWuQTeJbGoEUq_bsuAH1HMag&s"></img>
         </div>
         <div className="menu-area">
             <ul className="menu-list">

@@ -5,6 +5,7 @@ import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import Navbar from './component/Navbar';
+import { useEffect, useState } from 'react';
 
 
 //1. 전체상품페이지, 로그인페이지, 상품상세페이지
@@ -18,11 +19,16 @@ import Navbar from './component/Navbar';
 //8. 로그인하면 로그아웃이 보고이고, 그 반대로 보인다.
 //9. 상품을 검색 할 수 있다.
 function App() {
+  const[authenticate, setAuthenticate] = useState(false) // ture면 로그인됨 false 로그인이 안됨
+
+  useEffect(()=> {
+    console.log("AAAA", authenticate);
+  }, [authenticate]);
   return <div>
     <Navbar/>
     <Routes>
         <Route path="/" element={<ProductAll  />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>} />
         <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>
   </div>

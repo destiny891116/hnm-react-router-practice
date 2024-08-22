@@ -4,8 +4,13 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import ProductCard from '../component/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
 
+const apiUrl = process.env.NODE_ENV !== 'development'
+    ? 'https://my-json-server.typicode.com/HyungJun-Yoo/react-nike-shoes'
+    : 'http://localhost:5000'
+
 
 const ProductAll = () => {
+  console.log(process.env.NODE_ENV);
   const [productList, setProductList] = useState([]);
 
   const getProducts = async () => {
@@ -23,13 +28,12 @@ const ProductAll = () => {
   return (
     <div>
       <Container>
-       <Row>
-        {productList.map((menu) => (
-          <Col lg={3} key={menu.id}>
-            <ProductCard item={menu}/>
-          </Col>
-        ))};
-        
+        <Row>
+          {productList.map((menu) => (
+            <Col lg={3} key={menu.id}>
+              <ProductCard item={menu}/>
+            </Col>
+          ))};
         </Row>
       </Container>
     </div>
