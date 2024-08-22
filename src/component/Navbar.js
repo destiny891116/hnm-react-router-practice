@@ -5,22 +5,35 @@ import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({authenticate, setAuthenticate}) => {
     const menuList = ['Women', 'Man', 'Baby', 'Kids', 'H&M HOME', 'Sport', 'Sale', '지속가능성'];  
     const navigate = useNavigate();
 
     const mainPage = () => {
         navigate("/");
     }
+    
     const loginPage = () => {
+
+        if(authenticate) {
+            
+        if(window.confirm("로그아웃 하시겠습니까?")) {
+            setAuthenticate(false);
+            navigate("/");
+        }
+        } else {
         navigate("/login");
+        }
+        
     }
   return (
     <div>
         <div>
             <div className='login-button'>
                 <FontAwesomeIcon icon={faUser} />
-                <div onClick={loginPage}>로그인</div>
+                <div onClick={loginPage}>
+                    {authenticate ? "로그아웃" : "로그인"}
+                </div>
              </div>
         </div>
         <div className="nav-section">

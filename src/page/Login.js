@@ -35,7 +35,7 @@ const Login = ({setAuthenticate}) => {
       <Button className="login-btn" variant="danger" type="submit">
         로그인
       </Button>
-      <Button variant="danger" type="button">
+      <Button variant="secondary" type="button" className="join-btn">
         회원 가입하기
       </Button>
     </Form>
