@@ -32,8 +32,8 @@ const ProductDetail = () => {
   }, []) 
   return <Container>
       <Row>
-          <Col className="product-img">
-            <img src={product?.img} alt="product-img" />
+          <Col className="product-detail-card">
+            <img src={product?.img} alt="product-detail-img" />
           </Col>
           <Col className="product-info">
             <div className="product-title">{product?.new === true ? "NEW" : ""} {product?.title}</div>
