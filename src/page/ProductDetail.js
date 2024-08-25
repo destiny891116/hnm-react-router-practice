@@ -30,12 +30,12 @@ const ProductDetail = () => {
   useEffect(()=> {
     getProductDetail();
   }, []) 
-  return <Container>
+  return <Container className="product-detail-card">
       <Row>
-          <Col className="product-detail-card">
+          <Col xs={12} md={6} className="product-detail-card">
             <img src={product?.img} alt="product-detail-img" />
           </Col>
-          <Col className="product-info">
+          <Col xs={12} md={6} className="product-info">
             <div className="product-title">{product?.new === true ? "NEW" : ""} {product?.title}</div>
             <div className="con-price">
               <div className="price">₩{product?.price}</div>
