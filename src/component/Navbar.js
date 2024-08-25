@@ -1,12 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 const Navbar = ({authenticate, setAuthenticate}) => {
     const menuList = ['Women', 'Man', 'Baby', 'Kids', 'H&M HOME', 'Sport', 'Sale', '지속가능성'];  
+    const [width, setWidth] = useState(0);
     const navigate = useNavigate();
 
     const mainPage = () => {
@@ -37,24 +38,43 @@ const Navbar = ({authenticate, setAuthenticate}) => {
 
   return (
     <div>
-        <div>
-            <div className='login-button'>
-                <FontAwesomeIcon icon={faUser} />
-                <div onClick={loginPage}>
-                    {authenticate ? "로그아웃" : "로그인"}
-                </div>
-             </div>
+        <div className="side-menu" style={{ width: width }}>
+            <button className="closebtn" onClick={() => setWidth(0)}>&times;</button>
+            <div className="side-menu-list" id="menu-list">
+            {menuList.map((menu, index) => (
+                <button key={index}>{menu}</button>
+            ))}
+            </div>
         </div>
+
+        <div className="nav-header">
+            <div className="burger-menu hide">
+            <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
+            </div>
+            {authenticate ? (
+            <div onClick={() => setAuthenticate(false)}>
+                <FontAwesomeIcon icon={faUser} />
+                <span style={{ cursor: "pointer" }}>로그아웃</span>
+            </div>
+            ) : (
+            <div onClick={() => navigate("/login")}>
+                <FontAwesomeIcon icon={faUser} />
+                <span style={{ cursor: "pointer" }}>로그인</span>
+            </div>
+            )}
+        </div>
+
         <div className="nav-section">
             <img onClick={mainPage}width={100} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu33MvMQxzeLQWuQTeJbGoEUq_bsuAH1HMag&s"></img>
         </div>
-        <div className="menu-area">
+        
+        <div className="nav-menu-area">
             <ul className="menu-list">
                 {menuList.map((menu) => (
                     <li key={menu}>{menu}</li>
                 ))}
             </ul>
-            <div className="serach-box">
+            <div className="search-box">
                 <FontAwesomeIcon icon={faSearch}/>
                 <input type="text" className="search-btn" placeholder="검색을 입력해주세요." onKeyPress={(event)=>search(event)}  />
             </div>

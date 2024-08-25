@@ -1,6 +1,44 @@
 body {
-    font-family: "Noto Sans KR", sans-serif;
-    background-color: #faf9f8;
+  font-family: sans-serif;
+}
+.nav-header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  
+}
+
+.nav-header * {
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.menu{
+  display: flex;
+  list-style-type: none;
+  padding: 20px;
+}
+
+.menu li a{
+  text-decoration: none;
+  color:black;
+  margin-left:20px;
+}
+
+.nav-logo{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.nav-menu-area {
+  display: flex;
+  justify-content: center;
+}
+
+.burger-menu {
+  margin-left: 20px;
 }
 
 .login-button {
@@ -26,21 +64,26 @@ body {
     padding: 10px;
 }
 
-.menu-area {
-    display: flex;
-    justify-content: center;
+
+.search-box {
+  border-bottom: 1px solid black;
+  position: absolute;
+  right: 20px;
+  padding: 5px;
 }
 
-.search-btn {
-    border-width: 0 0 1px;
+.search-box input{
+  border:none;
+  margin-left:5px;
+}
+
+.search-box input:focus {
+  outline:none
 }
 
 .product-card:hover .child {
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02); /* 크롬, 사파리 */
-    -moz-transform: scale(1.02);  /* 파이어폭스 */
-    -ms-transform: scale(1.02); /* IE */
-    -o-transform: scale(1.02);  /* 오페라 */
+    border:none !important;
+    margin-bottom: 10px;
   }
 
   .product-img {
@@ -68,6 +111,17 @@ body {
   .con-price {
     display: flex;
     justify-content: flex-start;
+  }
+
+  .card{
+    border:none !important;
+    margin-bottom: 10px;
+  }
+
+  .choice{
+    font-size:11px;
+    color: #63786a;
+    font-weight: bold;
   }
 
   .sp-price {
@@ -100,21 +154,57 @@ body {
     color: #ffffff;
   }
 
-  @media (max-width: 768px) {
-    .product-all {
-      grid-template-columns: repeat(3, 1fr);
-      padding: 0;
+  @media screen and (max-width: 63rem) {
+    .hide {
+      visibility:visible;
     }
-
+    .menu-list {
+      display: none;
+    }
+    .search-box{
+      display: none;
+    }
   }
   
-  @media (max-width: 480px) {
-    .product-all {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding: 0;
-    }
-
-
+  .side-menu {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: burlywood;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index:2
   }
+
+  .side-menu-list button {
+    margin: 5px;
+    border: none;
+    background: none;
+    width: 120px;
+  }
+  
+  .side-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    border: none;
+    background: none;
+  }
+  
+  .side-menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .side-menu-list button:hover {
+    background-color: beige;
+    border-radius: 3px;
+  } 
 
